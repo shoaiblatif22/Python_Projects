@@ -31,3 +31,10 @@ class Blockchain(object):
         :param amount: <init> amount
         :return: <int> the index of the block that holds transaction
         """
+        self.current_transaction.append({
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount,
+        })
+
+        return self.last_block['index'] + 1
