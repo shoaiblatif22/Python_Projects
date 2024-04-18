@@ -14,7 +14,7 @@ class Blockchain(object):
         #Creating the genesis block, this is the first hash with no predecssors
         self.new_block(previous_hash=1, proof=100)
     
-    def new_block(self):
+    def new_block(self, proof, previous_hash=None):
         #creates a new block and adds it to the chain
         '''
         Create a new block in the blockchain
@@ -29,19 +29,12 @@ class Blockchain(object):
             'proof': proof,
             'previous_hash': previous_hash or self.hash(self.chain[-1])
         }
+        #Reset the current list of transaction
+        self.current_transaction = []
 
-    def new_transaction(self):
-        #adds a new transaction to the list of transactions
-        pass
-
-    @staticmethod
-    def hash(block):
-        #hashes a block
-        pass
-
-    @property
-    def last_block(self):
-        pass
+        self.chain.append(block)
+        return block
+    
 
     ## NEW TRANSACTIONS ##
 
@@ -61,4 +54,16 @@ class Blockchain(object):
 
         return self.last_block['index'] + 1
     
+
+
+    @staticmethod
+    def hash(block):
+        #hashes a block
+        pass
+
+    @property
+    def last_block(self):
+        pass
+
+
     ## CREATING NEW BLOCKS ##
