@@ -21,5 +21,13 @@ class Blockchain(object):
 
     @property
     def last_block(self):
-        
         pass
+
+    def new_transaction(self, sender, recipient, amount):
+        """
+        Creates a new transaction to go into the next mined block
+        :param sender: <str> Address of sender
+        :param recipient: <str> address of recipient
+        :param amount: <init> amount
+        :return: <int> the index of the block that holds transaction
+        """
