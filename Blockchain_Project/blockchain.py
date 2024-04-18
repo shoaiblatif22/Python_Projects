@@ -13,4 +13,13 @@ class Blockchain(object):
     def new_transaction(self):
         #adds a new transaction to the list of transactions
         pass
-    
+
+    @staticmethod
+    def hash(block):
+        #hashes a block
+        pass
+
+    @property
+    def last_block(self):
+        #returns the last block in the chain
+        pass
