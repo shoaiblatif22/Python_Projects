@@ -16,7 +16,19 @@ class Blockchain(object):
     
     def new_block(self):
         #creates a new block and adds it to the chain
-        pass
+        '''
+        Create a new block in the blockchain
+        :param proof: <int> Proof given by the proof of work algo
+        :param previous_hash: (Optional) <str> hash of previous block
+        :return <dict> new block
+        '''
+        block = {
+            'index': len(self.chain) + 1,
+            'timestamp': time(),
+            'transaction': self.current_transaction,
+            'proof': proof,
+            'previous_hash': previous_hash or self.hash(self.chain[-1])
+        }
 
     def new_transaction(self):
         #adds a new transaction to the list of transactions
