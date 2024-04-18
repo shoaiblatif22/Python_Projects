@@ -1,10 +1,18 @@
+import hashlib
+import json
+from time import time
+
 #Representing a blockchain
-#We'll first create a blockhain using a constructor
+
+## BLUEPRINT FOR CLASS ##
 
 class Blockchain(object):
     def __init__(self):
         self.chain = []
         self.current_transaction = []
+
+        #Creating the genesis block, this is the first hash with no predecssors
+        self.new_block(previous_hash=1, proof=100)
     
     def new_block(self):
         #creates a new block and adds it to the chain
@@ -23,6 +31,8 @@ class Blockchain(object):
     def last_block(self):
         pass
 
+    ## NEW TRANSACTIONS ##
+
     def new_transaction(self, sender, recipient, amount):
         """
         Creates a new transaction to go into the next mined block
@@ -38,3 +48,5 @@ class Blockchain(object):
         })
 
         return self.last_block['index'] + 1
+    
+    ## CREATING NEW BLOCKS ##
